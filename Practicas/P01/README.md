@@ -33,7 +33,7 @@
 | Captura | Archivo |
 |---|---|
 | Panel de inicio con ID del proyecto | ![P01_A1_gcp_DiegxMG_1](evidencias/P01/P01_A1_gcp_DiegxMG_1.png) |
-| Lista de regiones con México visible | ![P01_A1_gcp_DiegxMG_2](evidencias/P01/P01_A1_gcp_DiegxMG_2.png) |
+| Lista de regiones con México visible | ![P01_A1_gcp_DiegxMG_2](evidencias/P01/P01_A1_gcp_DiegxMg_2.png) |
 | Facturación: gasto del mes 0.00 y créditos con vencimiento | ![P01_A1_gcp_DiegxMG_3](evidencias/P01/P01_A1_gcp_DiegxMG_3.png) |
 
 **AWS**
