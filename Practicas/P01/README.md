@@ -5,16 +5,14 @@
 - **Equipo:** Equipo 2
 - **Proveedores usados:** Google Cloud y Amazon Web Services (AWS)
 - **Sesiones:** A (1 de septiembre de 2026) · B (8 de septiembre de 2026)
-
 ---
 
 ## 0. Integrantes
 
 | # | Nombre | Boleta | Usuario GitHub | Correo donde llegan las alertas |
 |---|--------|--------|----------------|---------------------------------|
-| 1 | Diego Mendieta Gonzalez | [COMPLETAR boleta] | DiegxMG | dmendieta2005@gmail.com |
+| 1 | Diego Mendieta Gonzalez | 2024630077 | DiegxMG | dmendieta2005@gmail.com |
 | 2 | Mirón Xochipa Juan Antonio | 2020630680 | Johnny06spider | [COMPLETAR correo] |
-
 ---
 
 ## 1. Cuentas del equipo y reconocimiento de la consola (Actividad A1)
@@ -24,7 +22,7 @@
 | Integrante | Proveedor | Identificador de cuenta | Unidad de facturación | Región México | Créditos y vencimiento | Correo de alertas |
 |---|---|---|---|---|---|---|
 | Diego Mendieta Gonzalez | Google Cloud | ID del proyecto: `project-6800c28f-c7a6-492a-84e` (nombre: My First Project · número: 403204069542) | Cuenta de facturación + proyecto | Sí · `northamerica-south1` (Querétaro) | Crédito de bienvenida de MXN 5,344.19 (equivalente a los 300 USD de la prueba; la cuenta factura en pesos) · vence el 4 de enero de 2027 (41 días restantes al 24 nov 2026) | dmendieta2005@gmail.com |
-| Diego Mendieta Gonzalez | AWS | ID de cuenta (12 dígitos): [COMPLETAR] | Cuenta de AWS | Sí · `mx-central-1` (Querétaro) | [COMPLETAR] USD · vence [COMPLETAR fecha] (plan gratuito: 6 meses o hasta agotar el crédito) | dmendieta2005@gmail.com |
+| Diego Mendieta Gonzalez | AWS | ID de cuenta: `739854784028` (nombre de la cuenta: Diego Mendieta) | Cuenta de AWS | Sí · `mx-central-1` (Querétaro), habilitada y seleccionada en la consola | 0.00 USD de crédito disponible (Billing → Credits, 24 nov 2026) | dmendieta2005@gmail.com |
 | Mirón Xochipa Juan Antonio | Google Cloud | ID del proyecto: [COMPLETAR] | Cuenta de facturación + proyecto | Sí · `northamerica-south1` (Querétaro) | [COMPLETAR] | [COMPLETAR] |
 | Mirón Xochipa Juan Antonio | AWS | ID de cuenta (12 dígitos): [COMPLETAR] | Cuenta de AWS | Sí · `mx-central-1` (Querétaro) | [COMPLETAR] | [COMPLETAR] |
 
@@ -53,6 +51,7 @@
 | Panel de inicio con ID de cuenta/proyecto | ![P01_A1_gcp_Johnny06spider_1](evidencias/P01/P01_A1_gcp_Johnny06spider_1.png) | ![P01_A1_aws_Johnny06spider_1](evidencias/P01/P01_A1_aws_Johnny06spider_1.png) |
 | Lista de regiones con México | ![P01_A1_gcp_Johnny06spider_2](evidencias/P01/P01_A1_gcp_Johnny06spider_2.png) | ![P01_A1_aws_Johnny06spider_2](evidencias/P01/P01_A1_aws_Johnny06spider_2.png) |
 | Gasto 0.00 y créditos con vencimiento | ![P01_A1_gcp_Johnny06spider_3](evidencias/P01/P01_A1_gcp_Johnny06spider_3.png) | ![P01_A1_aws_Johnny06spider_3](evidencias/P01/P01_A1_aws_Johnny06spider_3.png) |
+
 ---
 
 ## 2. Alertas de presupuesto (Actividad A2) — individuales
@@ -67,7 +66,7 @@
 | Periodo | Mensual |
 | Alcance | Esta cuenta de facturación (todos los proyectos) · todos los servicios |
 | Créditos | Se **desmarcó** «Promotions and others» (para medir el consumo real contra los 300 USD) |
-| Monto | 5.00 (importe especificado; la cuenta de facturación está en pesos mexicanos, MXN) <!-- La práctica pide 5 USD. Con el tipo de cambio de tu crédito (5,344.19 MXN = 300 USD) equivalen a ≈ 89 MXN. Si editas el presupuesto a 89 MXN, repite las capturas A2_1 y A2_4 y actualiza esta fila y la de umbrales. --> |
+| Monto | 5.00 (importe especificado; la cuenta de facturación está en pesos mexicanos, MXN)|
 | Umbrales | 50 % ($2.50) · 90 % ($4.50) · 100 % ($5.00) del gasto real · 100 % ($5.00) del pronóstico (previsto) |
 | Notificación | Alertas por correo a administradores de facturación y usuarios (dmendieta2005@gmail.com); alertas a propietarios del proyecto desactivadas |
 | Créditos | La lista del presupuesto indica «No se usaron créditos» |
@@ -85,23 +84,24 @@
 | Campo | Presupuesto 1 | Presupuesto 2 |
 |---|---|---|
 | Nombre | `P1-DiegxMG-aws-cero` | `P1-DiegxMG-aws` |
-| Tipo | Zero spend budget (plantilla simplificada) | Monthly cost budget (plantilla simplificada o Customize) |
-| Monto | Avisa al superar 0.01 USD | 5 USD |
-| Umbrales | Gasto mayor a 0.01 USD | 85 % y 100 % del gasto real + 100 % del pronóstico (plantilla simplificada) <!-- si usaste Customize: 50/80/100 % --> |
-| Destinatario | dmendieta2005@gmail.com | dmendieta2005@gmail.com |
+| Tipo | Presupuesto de costos · plantilla «Zero spend budget» | Presupuesto de costos · plantilla «Monthly cost budget» |
+| Periodo | Mensual · inicio 2026-11-01 | Mensual · inicio 2026-11-01 |
+| Monto | 1.00 USD (la plantilla lo fija en 1 USD y avisa al superar 0.01 USD) | 5.00 USD |
+| Umbrales | Costo real > 0.01 USD (1 % del monto) | 3 alertas de la plantilla: costo real > 85 % (4.25 USD), costo previsto > 100 % (5.00 USD) y costo real > 100 % |
+| Estado | En buen estado · 0.00 USD gastados | En buen estado · 0.00 USD gastados |
+| Destinatario | dmendieta2005@gmail.com (verificado) | dmendieta2005@gmail.com (verificado) |
 
-Además: en Billing preferences → Alert preferences se activó **AWS Free Tier alerts**: [COMPLETAR sí/no].
+Además: en Billing preferences → Alert preferences están activadas las **alertas del nivel gratuito de AWS** (entregadas a dmendieta2005@gmail.com); las alertas de facturación de CloudWatch aparecen como «No entregado».
 
 | Fecha | Captura |
 |---|---|
-| 1 sep 2026 (lista de Budgets con ambos) | ![P01_A2_aws_DiegxMG_1](evidencias/P01/P01_A2_aws_DiegxMG_1.png) |
-| 2 sep 2026 (`Current: $0.00`) | ![P01_A2_aws_DiegxMG_2](evidencias/P01/P01_A2_aws_DiegxMG_2.png) |
-| 8 sep 2026 (estado OK) | ![P01_A2_aws_DiegxMG_3](evidencias/P01/P01_A2_aws_DiegxMG_3.png) |
+| 24 nov 2026 (lista de Budgets con ambos, `0.00 US$` utilizado) | ![P01_A2_aws_DiegxMG_1](evidencias/P01/P01_A2_aws_DiegxMG_1.png) |
+| [COMPLETAR fecha: día siguiente] (presupuesto vivo, 0.00) | ![P01_A2_aws_DiegxMG_2](evidencias/P01/P01_A2_aws_DiegxMG_2.png) |
+| [COMPLETAR fecha: día de entrega] (estado OK) | ![P01_A2_aws_DiegxMG_3](evidencias/P01/P01_A2_aws_DiegxMG_3.png) |
 | Detalle del presupuesto de gasto cero | ![P01_A2_aws_DiegxMG_4](evidencias/P01/P01_A2_aws_DiegxMG_4.png) |
 | Detalle del presupuesto mensual | ![P01_A2_aws_DiegxMG_5](evidencias/P01/P01_A2_aws_DiegxMG_5.png) |
-| Free Tier alerts activadas | ![P01_A2_aws_DiegxMG_6](evidencias/P01/P01_A2_aws_DiegxMG_6.png) |
+| Preferencias de alertas: alertas del nivel gratuito activadas | ![P01_A2_aws_DiegxMG_6](evidencias/P01/P01_A2_aws_DiegxMG_6.png) |
 
-Correos recibidos del proveedor (si los hubo): [COMPLETAR o «ninguno»]
 
 ### 2.3 Mirón Xochipa Juan Antonio (Johnny06spider) — Google Cloud y AWS
 
@@ -207,7 +207,7 @@ Se revisaron 7 servicios por proveedor **sin crear ningún recurso** (asistente 
 
 ### SaaS (captura de precios)
 
-- **SaaS elegido:** GitHub (plan de pago por usuario) <!-- cámbialo si capturaste otro SaaS -->
+- **SaaS elegido:** GitHub (plan de pago por usuario)
 - **Unidad de cobro:** usuario por mes — [COMPLETAR precio visto en la captura]
 - **Captura:** ![P01_B1_saas_DiegxMG_1](evidencias/P01/P01_B1_saas_DiegxMG_1.png)
 - **¿Por qué no aparece en la consola de una nube de infraestructura?** Porque en SaaS el proveedor administra toda la pila y el cliente solo usa y configura la aplicación; las consolas de nube de infraestructura exponen servicios que el cliente combina y administra parcialmente (IaaS, PaaS, FaaS), no productos finales de licencia por usuario.
@@ -237,7 +237,7 @@ Se revisaron 7 servicios por proveedor **sin crear ningún recurso** (asistente 
 | Inventario sin cómputo, red ni almacenamiento encendidos | ![P01_B3_gcp_DiegxMG_1](evidencias/P01/P01_B3_gcp_DiegxMG_1.png) | ![P01_B3_aws_DiegxMG_1](evidencias/P01/P01_B3_aws_DiegxMG_1.png) |
 | Gasto del mes 0.00 y saldo de créditos (con fecha visible) | ![P01_B3_gcp_DiegxMG_2](evidencias/P01/P01_B3_gcp_DiegxMG_2.png) | ![P01_B3_aws_DiegxMG_2](evidencias/P01/P01_B3_aws_DiegxMG_2.png) |
 | Listado de presupuestos en estado OK (8 sep) | ![P01_A2_gcp_DiegxMG_3](evidencias/P01/P01_A2_gcp_DiegxMG_3.png) | ![P01_A2_aws_DiegxMG_3](evidencias/P01/P01_A2_aws_DiegxMG_3.png) |
-| Recursos que existían y justificación | Ninguno: el panel de Compute Engine no muestra instancias | [COMPLETAR o «ninguno»] |
+| Recursos que existían y justificación | Ninguno: el panel de Compute Engine no muestra instancias | Sin cómputo, red ni almacenamiento. Resource Explorer lista 4 recursos de gestión: dos de `resource-explorer-2` (índice y vista), un presupuesto (`budgets`) y un rol de servicio de IAM creado por Resource Explorer. No generan costo. |
 
 ### Mirón Xochipa Juan Antonio (Johnny06spider)
 
@@ -270,7 +270,7 @@ Para [COMPLETAR idea del proyecto] conviene [COMPLETAR: IaaS / PaaS / contenedor
 Las alertas avisan pero no detienen el gasto. En AWS, AWS Budgets permite configurar **acciones de presupuesto** que se ejecutan cuando se cruza un umbral: aplicar una política IAM o de control de servicios que restrinja crear recursos, o detener instancias EC2 y RDS específicas. Lo configuraríamos así: (1) crear la acción dentro del presupuesto mensual, asociada al umbral del 100 %; (2) darle un rol con permisos solo para detener los recursos indicados; (3) elegir ejecución automática o con aprobación manual; (4) probarla antes de depender de ella. En Google Cloud, el presupuesto puede publicar sus notificaciones en un tema de Pub/Sub, y una Cloud Function suscrita puede desvincular la cuenta de facturación del proyecto o apagar instancias. En una cuenta individual de AWS (que no es cuenta de administración de una organización) no se pueden aplicar SCP, pero sí una política IAM de denegación o apuntar a instancias EC2 o RDS específicas, y las acciones de IAM y SCP se reinician al inicio de cada periodo del presupuesto, mientras que las de apagar instancias no (AWS, 2026a; AWS, 2020). Ninguno de estos mecanismos sustituye revisar la consola: solo limitan el daño.
 
 **6. Dependencia de capas gratuitas**
-Los dos casos muestran que una capa gratuita es una promoción que el proveedor puede reducir o cerrar: Oracle redujo el ARM de Always Free a la mitad en junio de 2026 sin anuncio público, y AWS cambió en julio de 2025 a un plan gratuito que se cierra solo a los seis meses; ese plan es el que usamos en AWS, así que nuestro crédito tiene fecha de vencimiento. En Google Cloud la prueba dura 90 días: el crédito de bienvenida (MXN 5,344.19, equivalente a 300 USD) de la cuenta de Diego finaliza el 4 de enero de 2027, y se acaba antes si se consume todo el saldo. Nuestro equipo haría lo siguiente: (1) repartir el proyecto entre dos nubes para no depender de un solo crédito; (2) mantener la infraestructura como código y los despliegues en contenedores dentro del repositorio, para poder recrearlos en otra cuenta; (3) anotar en un calendario las fechas de vencimiento de cada crédito y planear con antelación qué se migra o se apaga; (4) mantener alertas activas en todas las cuentas; y (5) decidir antes de la demo final si conviene pasar una de las cuentas a plan de pago con presupuesto y límites estrictos.
+Los dos casos muestran que una capa gratuita es una promoción que el proveedor puede reducir o cerrar: Oracle redujo el ARM de Always Free a la mitad en junio de 2026 sin anuncio público, y AWS cambió en julio de 2025 a un plan gratuito que se cierra solo a los seis meses o al agotar el crédito. En la cuenta de AWS de Diego la página de Créditos mostró 0.00 US$ disponibles el 24 de noviembre de 2026, así que no contamos con saldo de crédito para desplegar recursos en esa cuenta [COMPLETAR: explica el estado del plan de la cuenta tras revisar Billing]. En Google Cloud la prueba dura 90 días: el crédito de bienvenida (MXN 5,344.19, equivalente a 300 USD) de la cuenta de Diego finaliza el 4 de enero de 2027, y se acaba antes si se consume todo el saldo. Nuestro equipo haría lo siguiente: (1) repartir el proyecto entre dos nubes para no depender de un solo crédito; (2) mantener la infraestructura como código y los despliegues en contenedores dentro del repositorio, para poder recrearlos en otra cuenta; (3) anotar en un calendario las fechas de vencimiento de cada crédito y planear con antelación qué se migra o se apaga; (4) mantener alertas activas en todas las cuentas; y (5) decidir antes de la demo final si conviene pasar una de las cuentas a plan de pago con presupuesto y límites estrictos.
 
 ---
 
