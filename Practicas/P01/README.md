@@ -5,6 +5,7 @@
 - **Equipo:** Equipo 2
 - **Proveedores usados:** Google Cloud y Amazon Web Services (AWS)
 - **Sesiones:** A (1 de septiembre de 2026) · B (8 de septiembre de 2026)
+
 ---
 
 ## 0. Integrantes
@@ -27,37 +28,41 @@
 | Mirón Xochipa Juan Antonio | Google Cloud | ID del proyecto: [COMPLETAR] | Cuenta de facturación + proyecto | Sí · `northamerica-south1` (Querétaro) | [COMPLETAR] | [COMPLETAR] |
 | Mirón Xochipa Juan Antonio | AWS | ID de cuenta (12 dígitos): [COMPLETAR] | Cuenta de AWS | Sí · `mx-central-1` (Querétaro) | [COMPLETAR] | [COMPLETAR] |
 
+<!-- Si Juan Antonio usa otros proveedores, cambia las dos últimas filas. -->
+
 ### Evidencias A1 — Diego Mendieta Gonzalez (DiegxMG)
 
 **Google Cloud**
 
 | Captura | Archivo |
 |---|---|
-| Panel de inicio con ID del proyecto | ![](/P01/evidencias/P01/P01_A1_gcp_DiegxMG_1.png) |
-| Lista de regiones con México visible | ![](/P01/evidencias/P01/P01_A1_gcp_DiegxMG_2.png) |
-| Facturación: gasto del mes 0.00 y créditos con vencimiento | ![](/P01/evidencias/P01/P01_A1_gcp_DiegxMG_3.png) |
+| Panel de inicio con ID del proyecto | ![P01_A1_gcp_DiegxMG_1](../../evidencias/P01/P01_A1_gcp_DiegxMG_1.png) |
+| Lista de regiones con México visible | ![P01_A1_gcp_DiegxMG_2](../../evidencias/P01/P01_A1_gcp_DiegxMG_2.png) |
+| Facturación: gasto del mes 0.00 y créditos con vencimiento | ![P01_A1_gcp_DiegxMG_3](../../evidencias/P01/P01_A1_gcp_DiegxMG_3.png) |
 
 **AWS**
 
 | Captura | Archivo |
 |---|---|
-| Consola con el ID de cuenta visible y selector de región | ![](/P01/evidencias/P01/P01_A1_aws_DiegxMG_1.png) |
-| Lista de regiones con Mexico (Central) visible | ![](/P01/evidencias/P01/P01_A1_aws_DiegxMG_2.png) |
-| Billing: gasto del mes 0.00 y créditos con vencimiento | ![](/P01/evidencias/P01/P01_A1_aws_DiegxMG_3.png) |
+| Consola con el ID de cuenta visible y selector de región | ![P01_A1_aws_DiegxMG_1](../../evidencias/P01/P01_A1_aws_DiegxMG_1.png) |
+| Lista de regiones con Mexico (Central) visible | ![P01_A1_aws_DiegxMG_2](../../evidencias/P01/P01_A1_aws_DiegxMG_2.png) |
+| Billing: gasto del mes 0.00 y créditos con vencimiento | ![P01_A1_aws_DiegxMG_3](../../evidencias/P01/P01_A1_aws_DiegxMG_3.png) |
 
 ### Evidencias A1 — Mirón Xochipa Juan Antonio (Johnny06spider)
 
 | Captura | Google Cloud | AWS |
 |---|---|---|
-| Panel de inicio con ID de cuenta/proyecto | ![](/P01/evidencias/P01/P01_A1_gcp_Johnny06spider_1.png) | ![](/P01/evidencias/P01/P01_A1_aws_Johnny06spider_1.png) |
-| Lista de regiones con México | ![](/P01/evidencias/P01/P01_A1_gcp_Johnny06spider_2.png) | ![](/P01/evidencias/P01/P01_A1_aws_Johnny06spider_2.png) |
-| Gasto 0.00 y créditos con vencimiento | ![](/P01/evidencias/P01/P01_A1_gcp_Johnny06spider_3.png) | ![](/P01/evidencias/P01/P01_A1_aws_Johnny06spider_3.png) |
+| Panel de inicio con ID de cuenta/proyecto | ![P01_A1_gcp_Johnny06spider_1](../../evidencias/P01/P01_A1_gcp_Johnny06spider_1.png) | ![P01_A1_aws_Johnny06spider_1](../../evidencias/P01/P01_A1_aws_Johnny06spider_1.png) |
+| Lista de regiones con México | ![P01_A1_gcp_Johnny06spider_2](../../evidencias/P01/P01_A1_gcp_Johnny06spider_2.png) | ![P01_A1_aws_Johnny06spider_2](../../evidencias/P01/P01_A1_aws_Johnny06spider_2.png) |
+| Gasto 0.00 y créditos con vencimiento | ![P01_A1_gcp_Johnny06spider_3](../../evidencias/P01/P01_A1_gcp_Johnny06spider_3.png) | ![P01_A1_aws_Johnny06spider_3](../../evidencias/P01/P01_A1_aws_Johnny06spider_3.png) |
 
 ---
 
 ## 2. Alertas de presupuesto (Actividad A2) — individuales
 
 **Regla común:** presupuesto mensual de 5 USD llamado `P1-<usuario>-<proveedor>` (en AWS, además, el de gasto cero), mínimo tres umbrales y 100 % del pronóstico, con notificación por correo.
+
+<!-- Las capturas de Diego en Google Cloud son del 24 de noviembre de 2026. Las filas «día siguiente» y «día de entrega» quedan pendientes: toma esas capturas en esas fechas reales y escribe la fecha. -->
 
 ### 2.1 Diego Mendieta Gonzalez — Google Cloud
 
@@ -75,10 +80,10 @@
 
 | Fecha | Captura |
 |---|---|
-| 24 nov 2026 (presupuesto creado, `$0.00/$5.00`) | ![](/P01/evidencias/P01/P01_A2_gcp_DiegxMG_1.png) |
-| [COMPLETAR fecha: día siguiente] (presupuesto vivo, 0.00) | ![](/P01/evidencias/P01/P01_A2_gcp_DiegxMG_2.png) |
-| [COMPLETAR fecha: día de entrega] (estado OK) | ![](/P01/evidencias/P01/P01_A2_gcp_DiegxMG_3.png) |
-| Detalle del presupuesto (umbrales y destinatario) | ![](/P01/evidencias/P01/P01_A2_gcp_DiegxMG_4.png) |
+| 24 nov 2026 (presupuesto creado, `$0.00/$5.00`) | ![P01_A2_gcp_DiegxMG_1](../../evidencias/P01/P01_A2_gcp_DiegxMG_1.png) |
+| [COMPLETAR fecha: día siguiente] (presupuesto vivo, 0.00) | ![P01_A2_gcp_DiegxMG_2](../../evidencias/P01/P01_A2_gcp_DiegxMG_2.png) |
+| [COMPLETAR fecha: día de entrega] (estado OK) | ![P01_A2_gcp_DiegxMG_3](../../evidencias/P01/P01_A2_gcp_DiegxMG_3.png) |
+| Detalle del presupuesto (umbrales y destinatario) | ![P01_A2_gcp_DiegxMG_4](../../evidencias/P01/P01_A2_gcp_DiegxMG_4.png) |
 
 ### 2.2 Diego Mendieta Gonzalez — AWS
 
@@ -94,12 +99,12 @@ Además: en Billing preferences → Alert preferences se activó **AWS Free Tier
 
 | Fecha | Captura |
 |---|---|
-| 1 sep 2026 (lista de Budgets con ambos) | ![](/P01/evidencias/P01/P01_A2_aws_DiegxMG_1.png) |
-| 2 sep 2026 (`Current: $0.00`) | ![](/P01/evidencias/P01/P01_A2_aws_DiegxMG_2.png) |
-| 8 sep 2026 (estado OK) | ![](/P01/evidencias/P01/P01_A2_aws_DiegxMG_3.png) |
-| Detalle del presupuesto de gasto cero | ![](/P01/evidencias/P01/P01_A2_aws_DiegxMG_4.png) |
-| Detalle del presupuesto mensual | ![](/P01/evidencias/P01/P01_A2_aws_DiegxMG_5.png) |
-| Free Tier alerts activadas | ![](/P01/evidencias/P01/P01_A2_aws_DiegxMG_6.png) |
+| 1 sep 2026 (lista de Budgets con ambos) | ![P01_A2_aws_DiegxMG_1](../../evidencias/P01/P01_A2_aws_DiegxMG_1.png) |
+| 2 sep 2026 (`Current: $0.00`) | ![P01_A2_aws_DiegxMG_2](../../evidencias/P01/P01_A2_aws_DiegxMG_2.png) |
+| 8 sep 2026 (estado OK) | ![P01_A2_aws_DiegxMG_3](../../evidencias/P01/P01_A2_aws_DiegxMG_3.png) |
+| Detalle del presupuesto de gasto cero | ![P01_A2_aws_DiegxMG_4](../../evidencias/P01/P01_A2_aws_DiegxMG_4.png) |
+| Detalle del presupuesto mensual | ![P01_A2_aws_DiegxMG_5](../../evidencias/P01/P01_A2_aws_DiegxMG_5.png) |
+| Free Tier alerts activadas | ![P01_A2_aws_DiegxMG_6](../../evidencias/P01/P01_A2_aws_DiegxMG_6.png) |
 
 Correos recibidos del proveedor (si los hubo): [COMPLETAR o «ninguno»]
 
@@ -114,10 +119,10 @@ Correos recibidos del proveedor (si los hubo): [COMPLETAR o «ninguno»]
 
 | Fecha | Google Cloud | AWS |
 |---|---|---|
-| 1 sep 2026 | ![](/P01/evidencias/P01/P01_A2_gcp_Johnny06spider_1.png) | ![](/P01/evidencias/P01/P01_A2_aws_Johnny06spider_1.png) |
-| 2 sep 2026 | ![](/P01/evidencias/P01/P01_A2_gcp_Johnny06spider_2.png) | ![](/P01/evidencias/P01/P01_A2_aws_Johnny06spider_2.png) |
-| 8 sep 2026 | ![](/P01/evidencias/P01/P01_A2_gcp_Johnny06spider_3.png) | ![](/P01/evidencias/P01/P01_A2_aws_Johnny06spider_3.png) |
-| Detalle | ![](/P01/evidencias/P01/P01_A2_gcp_Johnny06spider_4.png) | ![](/P01/evidencias/P01/P01_A2_aws_Johnny06spider_4.png) |
+| 1 sep 2026 | ![P01_A2_gcp_Johnny06spider_1](../../evidencias/P01/P01_A2_gcp_Johnny06spider_1.png) | ![P01_A2_aws_Johnny06spider_1](../../evidencias/P01/P01_A2_aws_Johnny06spider_1.png) |
+| 2 sep 2026 | ![P01_A2_gcp_Johnny06spider_2](../../evidencias/P01/P01_A2_gcp_Johnny06spider_2.png) | ![P01_A2_aws_Johnny06spider_2](../../evidencias/P01/P01_A2_aws_Johnny06spider_2.png) |
+| 8 sep 2026 | ![P01_A2_gcp_Johnny06spider_3](../../evidencias/P01/P01_A2_gcp_Johnny06spider_3.png) | ![P01_A2_aws_Johnny06spider_3](../../evidencias/P01/P01_A2_aws_Johnny06spider_3.png) |
+| Detalle | ![P01_A2_gcp_Johnny06spider_4](../../evidencias/P01/P01_A2_gcp_Johnny06spider_4.png) | ![P01_A2_aws_Johnny06spider_4](../../evidencias/P01/P01_A2_aws_Johnny06spider_4.png) |
 
 ---
 
@@ -141,7 +146,9 @@ Comparación: región de México contra la región de EE. UU. más barata (`us-c
 | **Total anual** | | | **1,005.65** | **919.69** | |
 | **Diferencia México vs. EE. UU. (%)** | | | **+9.34 %** (+7.16 USD/mes) | | |
 
-Capturas: ![](/P01/evidencias/P01/P01_A3_gcp_DiegxMG_1.png) ![](/P01/evidencias/P01/P01_A3_gcp_DiegxMG_2.png)
+<!-- Revisa en tu estimación el tipo de instancia de Cloud SQL: la práctica pide 1–2 vCPU y 2–4 GB de RAM. Si elegiste un tipo compartido muy pequeño (p. ej. db-f1-micro), el costo de la BD queda subestimado; en ese caso ajusta la estimación (por ejemplo db-custom-1-3840: 1 vCPU, 3.75 GB), vuelve a exportar el CSV y actualiza esta tabla. -->
+
+Capturas: ![P01_A3_gcp_DiegxMG_1](../../evidencias/P01/P01_A3_gcp_DiegxMG_1.png) ![P01_A3_gcp_DiegxMG_2](../../evidencias/P01/P01_A3_gcp_DiegxMG_2.png)
 Exportaciones: `evidencias/P01/costos/` → `gcp_mexico.csv`, `gcp_eeuu.csv`
 
 ### Tabla 2b. AWS
@@ -157,7 +164,7 @@ Exportaciones: `evidencias/P01/costos/` → `gcp_mexico.csv`, `gcp_eeuu.csv`
 | **Total anual** | | | **[COMPLETAR]** | **[COMPLETAR]** | |
 | **Diferencia México vs. EE. UU. (%)** | | | **[COMPLETAR]** | | |
 
-Capturas: ![](/P01/evidencias/P01/P01_A3_aws_DiegxMG_1.png) ![](/P01/evidencias/P01/P01_A3_aws_DiegxMG_2.png)
+Capturas: ![P01_A3_aws_DiegxMG_1](../../evidencias/P01/P01_A3_aws_DiegxMG_1.png) ![P01_A3_aws_DiegxMG_2](../../evidencias/P01/P01_A3_aws_DiegxMG_2.png)
 Exportaciones: `evidencias/P01/costos/` → `aws_mexico.csv`, `aws_eeuu.csv`
 
 > Cálculo de la diferencia: `(Total México − Total EE. UU.) / Total EE. UU. × 100`.
@@ -166,7 +173,7 @@ Exportaciones: `evidencias/P01/costos/` → `aws_mexico.csv`, `aws_eeuu.csv`
 
 **Proveedor candidato:** [COMPLETAR Google Cloud o AWS]
 **Idea del proyecto en una línea:** [COMPLETAR]
-Captura: ![](/P01/evidencias/P01/P01_A3_proyecto_DiegxMG_1.png)
+Captura: ![P01_A3_proyecto_DiegxMG_1](../../evidencias/P01/P01_A3_proyecto_DiegxMG_1.png)
 
 | Recurso del proyecto | Servicio | Unidad de cobro | Cantidad estimada | USD/mes | ¿Capa gratuita? |
 |---|---|---|---|---|---|
@@ -181,36 +188,35 @@ Se revisaron 7 servicios por proveedor **sin crear ningún recurso** (asistente 
 
 ### Tabla 3. Modelos de servicio identificados
 
-
 **Google Cloud**
 
 | Servicio | Modelo | Administra el proveedor | Administras tú | Unidad de cobro | Capa gratuita | En México | Captura |
 |---|---|---|---|---|---|---|---|
-| Compute Engine | IaaS | Hardware, virtualización, red física | SO, runtime, aplicación, datos | Segundo de vCPU/RAM + GB-mes de disco + GB de salida | [COMPLETAR] | [COMPLETAR] | [1](/P01/evidencias/P01/P01_B1_gcp_DiegxMG_1.png) |
-| App Engine / Cloud Run | PaaS | SO, runtime, parches, escalado | Aplicación y datos | vCPU-segundo / instancia-hora | [COMPLETAR] | [COMPLETAR] | [2](/P01/evidencias/P01/P01_B1_gcp_DiegxMG_2.png) |
-| Cloud Run functions | FaaS | Ejecución, escalado, disponibilidad | Código de la función | Invocación + GB-segundo | [COMPLETAR] | [COMPLETAR] | [3](/P01/evidencias/P01/P01_B1_gcp_DiegxMG_3.png) |
-| Google Kubernetes Engine (GKE) | Contenedores gestionados | Plano de control del orquestador | Imágenes y manifiestos | Nodos por hora + cuota de clúster | [COMPLETAR] | [COMPLETAR] | [4](/P01/evidencias/P01/P01_B1_gcp_DiegxMG_4.png) |
-| Cloud SQL | BD gestionada | Instalación, parches, respaldos, réplicas | Esquema y datos | Instancia-hora + GB-mes | [COMPLETAR] | [COMPLETAR] | [5](/P01/evidencias/P01/P01_B1_gcp_DiegxMG_5.png) |
-| Cloud Storage | Almacenamiento de objetos | Durabilidad y replicación | Objetos y permisos | GB-mes + solicitudes + GB de salida | [COMPLETAR] | [COMPLETAR] | [6](/P01/evidencias/P01/P01_B1_gcp_DiegxMG_6.png) |
-| Vertex AI | IA gestionada | Modelo, GPU, inferencia | Prompts y datos | Por millón de tokens / hora de nodo | [COMPLETAR] | [COMPLETAR] | [7](/P01/evidencias/P01/P01_B1_gcp_DiegxMG_7.png) |
+| Compute Engine | IaaS | Hardware, virtualización, red física | SO, runtime, aplicación, datos | Segundo de vCPU/RAM + GB-mes de disco + GB de salida | [COMPLETAR] | [COMPLETAR] | [1](../../evidencias/P01/P01_B1_gcp_DiegxMG_1.png) |
+| App Engine / Cloud Run | PaaS | SO, runtime, parches, escalado | Aplicación y datos | vCPU-segundo / instancia-hora | [COMPLETAR] | [COMPLETAR] | [2](../../evidencias/P01/P01_B1_gcp_DiegxMG_2.png) |
+| Cloud Run functions | FaaS | Ejecución, escalado, disponibilidad | Código de la función | Invocación + GB-segundo | [COMPLETAR] | [COMPLETAR] | [3](../../evidencias/P01/P01_B1_gcp_DiegxMG_3.png) |
+| Google Kubernetes Engine (GKE) | Contenedores gestionados | Plano de control del orquestador | Imágenes y manifiestos | Nodos por hora + cuota de clúster | [COMPLETAR] | [COMPLETAR] | [4](../../evidencias/P01/P01_B1_gcp_DiegxMG_4.png) |
+| Cloud SQL | BD gestionada | Instalación, parches, respaldos, réplicas | Esquema y datos | Instancia-hora + GB-mes | [COMPLETAR] | [COMPLETAR] | [5](../../evidencias/P01/P01_B1_gcp_DiegxMG_5.png) |
+| Cloud Storage | Almacenamiento de objetos | Durabilidad y replicación | Objetos y permisos | GB-mes + solicitudes + GB de salida | [COMPLETAR] | [COMPLETAR] | [6](../../evidencias/P01/P01_B1_gcp_DiegxMG_6.png) |
+| Vertex AI | IA gestionada | Modelo, GPU, inferencia | Prompts y datos | Por millón de tokens / hora de nodo | [COMPLETAR] | [COMPLETAR] | [7](../../evidencias/P01/P01_B1_gcp_DiegxMG_7.png) |
 
 **AWS**
 
 | Servicio | Modelo | Administra el proveedor | Administras tú | Unidad de cobro | Capa gratuita | En México | Captura |
 |---|---|---|---|---|---|---|---|
-| EC2 | IaaS | Hardware, virtualización, red física | SO, runtime, aplicación, datos | Segundo/hora de instancia + GB-mes de disco + GB de salida | [COMPLETAR] | [COMPLETAR] | [1](/P01/evidencias/P01/P01_B1_aws_DiegxMG_1.png) |
-| Elastic Beanstalk / App Runner | PaaS | SO, runtime, parches, escalado | Aplicación y datos | Instancia-hora / vCPU-segundo | [COMPLETAR] | [COMPLETAR] | [2](/P01/evidencias/P01/P01_B1_aws_DiegxMG_2.png) |
-| Lambda | FaaS | Ejecución, escalado, disponibilidad | Código de la función | Invocación + GB-segundo | [COMPLETAR] | [COMPLETAR] | [3](/P01/evidencias/P01/P01_B1_aws_DiegxMG_3.png) |
-| EKS / ECS | Contenedores gestionados | Plano de control del orquestador | Imágenes y manifiestos | Nodos por hora; plano de control de EKS: 0.10 USD/h | [COMPLETAR] | [COMPLETAR] | [4](/P01/evidencias/P01/P01_B1_aws_DiegxMG_4.png) |
-| RDS / DynamoDB | BD gestionada | Instalación, parches, respaldos, réplicas | Esquema y datos | Instancia-hora + GB-mes + IOPS | [COMPLETAR] | [COMPLETAR] | [5](/P01/evidencias/P01/P01_B1_aws_DiegxMG_5.png) |
-| S3 | Almacenamiento de objetos | Durabilidad y replicación | Objetos y permisos | GB-mes + solicitudes + GB de salida | [COMPLETAR] | [COMPLETAR] | [6](/P01/evidencias/P01/P01_B1_aws_DiegxMG_6.png) |
-| Bedrock | IA gestionada | Modelo, GPU, inferencia | Prompts y datos | Por millón de tokens | [COMPLETAR] | [COMPLETAR] | [7](/P01/evidencias/P01/P01_B1_aws_DiegxMG_7.png) |
+| EC2 | IaaS | Hardware, virtualización, red física | SO, runtime, aplicación, datos | Segundo/hora de instancia + GB-mes de disco + GB de salida | [COMPLETAR] | [COMPLETAR] | [1](../../evidencias/P01/P01_B1_aws_DiegxMG_1.png) |
+| Elastic Beanstalk / App Runner | PaaS | SO, runtime, parches, escalado | Aplicación y datos | Instancia-hora / vCPU-segundo | [COMPLETAR] | [COMPLETAR] | [2](../../evidencias/P01/P01_B1_aws_DiegxMG_2.png) |
+| Lambda | FaaS | Ejecución, escalado, disponibilidad | Código de la función | Invocación + GB-segundo | [COMPLETAR] | [COMPLETAR] | [3](../../evidencias/P01/P01_B1_aws_DiegxMG_3.png) |
+| EKS / ECS | Contenedores gestionados | Plano de control del orquestador | Imágenes y manifiestos | Nodos por hora; plano de control de EKS: 0.10 USD/h | [COMPLETAR] | [COMPLETAR] | [4](../../evidencias/P01/P01_B1_aws_DiegxMG_4.png) |
+| RDS / DynamoDB | BD gestionada | Instalación, parches, respaldos, réplicas | Esquema y datos | Instancia-hora + GB-mes + IOPS | [COMPLETAR] | [COMPLETAR] | [5](../../evidencias/P01/P01_B1_aws_DiegxMG_5.png) |
+| S3 | Almacenamiento de objetos | Durabilidad y replicación | Objetos y permisos | GB-mes + solicitudes + GB de salida | [COMPLETAR] | [COMPLETAR] | [6](../../evidencias/P01/P01_B1_aws_DiegxMG_6.png) |
+| Bedrock | IA gestionada | Modelo, GPU, inferencia | Prompts y datos | Por millón de tokens | [COMPLETAR] | [COMPLETAR] | [7](../../evidencias/P01/P01_B1_aws_DiegxMG_7.png) |
 
 ### SaaS (captura de precios)
 
 - **SaaS elegido:** GitHub (plan de pago por usuario) <!-- cámbialo si capturaste otro SaaS -->
 - **Unidad de cobro:** usuario por mes — [COMPLETAR precio visto en la captura]
-- **Captura:** ![](/P01/evidencias/P01/P01_B1_saas_DiegxMG_1.png)
+- **Captura:** ![P01_B1_saas_DiegxMG_1](../../evidencias/P01/P01_B1_saas_DiegxMG_1.png)
 - **¿Por qué no aparece en la consola de una nube de infraestructura?** Porque en SaaS el proveedor administra toda la pila y el cliente solo usa y configura la aplicación; las consolas de nube de infraestructura exponen servicios que el cliente combina y administra parcialmente (IaaS, PaaS, FaaS), no productos finales de licencia por usuario.
 
 ---
@@ -221,11 +227,12 @@ Se revisaron 7 servicios por proveedor **sin crear ningún recurso** (asistente 
 
 | Característica | Captura | Explicación (2 líneas) |
 |---|---|---|
-| Autoservicio bajo demanda | ![](/P01/evidencias/P01/P01_B2_gcp_DiegxMG_1.png) | El asistente «Crear una instancia» de Compute Engine permite elegir nombre, región, zona, tipo de máquina y sistema operativo, y lanzar una VM sin intervención de nadie del proveedor; la consola incluso estima el costo mensual. Se canceló antes de crear para no generar recursos. |
-| Amplio acceso a la red | ![](/P01/evidencias/P01/P01_B2_gcp_DiegxMG_2.png) | La misma cuenta (dmendieta2005@gmail.com) y el mismo proyecto se manejan desde otro cliente distinto a la consola gráfica: Cloud Shell, una terminal en el navegador. El comando `gcloud config list` devuelve la cuenta y el proyecto activos, por lo que se accede por red desde cualquier dispositivo con navegador. |
-| Agrupación de recursos | ![](/P01/evidencias/P01/P01_B2_gcp_DiegxMG_3.png) | La región `northamerica-south1` (México) ofrece tres zonas de disponibilidad (`-a`, `-b` y `-c`). Los recursos se asignan desde un conjunto de infraestructura compartido por muchos clientes, sin saber en qué servidor físico corren. |
-| Elasticidad rápida | ![](/P01/evidencias/P01/P01_B2_gcp_DiegxMG_4.png) | El selector de series y tamaños (por ejemplo `e2-micro`, `e2-small` y `e2-medium`, con distintas cantidades de vCPU y memoria) permite escalar los recursos de una VM con un cambio de configuración, sin comprar hardware. |
-| Servicio medido | ![](/P01/evidencias/P01/P01_B2_gcp_DiegxMG_5.png) | El informe de facturación agrupa el costo por producto en el mes actual, con gasto de MXN 0.00 y el saldo restante de los créditos de prueba gratuita. Todo uso se mide y se cobra, y el presupuesto `P1-DiegxMG-gcp` vigila ese gasto. |
+| Autoservicio bajo demanda | ![P01_B2_gcp_DiegxMG_1](../../evidencias/P01/P01_B2_gcp_DiegxMG_1.png) | El asistente «Crear una instancia» de Compute Engine permite elegir nombre, región, zona, tipo de máquina y sistema operativo, y lanzar una VM sin intervención de nadie del proveedor; la consola incluso estima el costo mensual. Se canceló antes de crear para no generar recursos. |
+| Amplio acceso a la red | ![P01_B2_gcp_DiegxMG_2](../../evidencias/P01/P01_B2_gcp_DiegxMG_2.png) | La misma cuenta (dmendieta2005@gmail.com) y el mismo proyecto se manejan desde otro cliente distinto a la consola gráfica: Cloud Shell, una terminal en el navegador. El comando `gcloud config list` devuelve la cuenta y el proyecto activos, por lo que se accede por red desde cualquier dispositivo con navegador. |
+| Agrupación de recursos | ![P01_B2_gcp_DiegxMG_3](../../evidencias/P01/P01_B2_gcp_DiegxMG_3.png) | La región `northamerica-south1` (México) ofrece tres zonas de disponibilidad (`-a`, `-b` y `-c`). Los recursos se asignan desde un conjunto de infraestructura compartido por muchos clientes, sin saber en qué servidor físico corren. |
+| Elasticidad rápida | ![P01_B2_gcp_DiegxMG_4](../../evidencias/P01/P01_B2_gcp_DiegxMG_4.png) | El selector de series y tamaños (por ejemplo `e2-micro`, `e2-small` y `e2-medium`, con distintas cantidades de vCPU y memoria) permite escalar los recursos de una VM con un cambio de configuración, sin comprar hardware. |
+| Servicio medido | ![P01_B2_gcp_DiegxMG_5](../../evidencias/P01/P01_B2_gcp_DiegxMG_5.png) | El informe de facturación agrupa el costo por producto en el mes actual, con gasto de MXN 0.00 y el saldo restante de los créditos de prueba gratuita. Todo uso se mide y se cobra, y el presupuesto `P1-DiegxMG-gcp` vigila ese gasto. |
+
 
 ---
 
@@ -235,18 +242,18 @@ Se revisaron 7 servicios por proveedor **sin crear ningún recurso** (asistente 
 
 | Verificación | Google Cloud | AWS |
 |---|---|---|
-| Inventario sin cómputo, red ni almacenamiento encendidos | ![](/P01/evidencias/P01/P01_B3_gcp_DiegxMG_1.png) | ![](/P01/evidencias/P01/P01_B3_aws_DiegxMG_1.png) |
-| Gasto del mes 0.00 y saldo de créditos (con fecha visible) | ![](/P01/evidencias/P01/P01_B3_gcp_DiegxMG_2.png) | ![](/P01/evidencias/P01/P01_B3_aws_DiegxMG_2.png) |
-| Listado de presupuestos en estado OK (8 sep) | ![](/P01/evidencias/P01/P01_A2_gcp_DiegxMG_3.png) | ![](/P01/evidencias/P01/P01_A2_aws_DiegxMG_3.png) |
+| Inventario sin cómputo, red ni almacenamiento encendidos | ![P01_B3_gcp_DiegxMG_1](../../evidencias/P01/P01_B3_gcp_DiegxMG_1.png) | ![P01_B3_aws_DiegxMG_1](../../evidencias/P01/P01_B3_aws_DiegxMG_1.png) |
+| Gasto del mes 0.00 y saldo de créditos (con fecha visible) | ![P01_B3_gcp_DiegxMG_2](../../evidencias/P01/P01_B3_gcp_DiegxMG_2.png) | ![P01_B3_aws_DiegxMG_2](../../evidencias/P01/P01_B3_aws_DiegxMG_2.png) |
+| Listado de presupuestos en estado OK (8 sep) | ![P01_A2_gcp_DiegxMG_3](../../evidencias/P01/P01_A2_gcp_DiegxMG_3.png) | ![P01_A2_aws_DiegxMG_3](../../evidencias/P01/P01_A2_aws_DiegxMG_3.png) |
 | Recursos que existían y justificación | Ninguno: el panel de Compute Engine no muestra instancias | [COMPLETAR o «ninguno»] |
 
 ### Mirón Xochipa Juan Antonio (Johnny06spider)
 
 | Verificación | Google Cloud | AWS |
 |---|---|---|
-| Inventario sin cómputo, red ni almacenamiento encendidos | ![](/P01/evidencias/P01/P01_B3_gcp_Johnny06spider_1.png) | ![](/P01/evidencias/P01/P01_B3_aws_Johnny06spider_1.png) |
-| Gasto del mes 0.00 y saldo de créditos | ![](/P01/evidencias/P01/P01_B3_gcp_Johnny06spider_2.png) | ![](/P01/evidencias/P01/P01_B3_aws_Johnny06spider_2.png) |
-| Listado de presupuestos en estado OK (8 sep) | ![](/P01/evidencias/P01/P01_A2_gcp_Johnny06spider_3.png) | ![](/P01/evidencias/P01/P01_A2_aws_Johnny06spider_3.png) |
+| Inventario sin cómputo, red ni almacenamiento encendidos | ![P01_B3_gcp_Johnny06spider_1](../../evidencias/P01/P01_B3_gcp_Johnny06spider_1.png) | ![P01_B3_aws_Johnny06spider_1](../../evidencias/P01/P01_B3_aws_Johnny06spider_1.png) |
+| Gasto del mes 0.00 y saldo de créditos | ![P01_B3_gcp_Johnny06spider_2](../../evidencias/P01/P01_B3_gcp_Johnny06spider_2.png) | ![P01_B3_aws_Johnny06spider_2](../../evidencias/P01/P01_B3_aws_Johnny06spider_2.png) |
+| Listado de presupuestos en estado OK (8 sep) | ![P01_A2_gcp_Johnny06spider_3](../../evidencias/P01/P01_A2_gcp_Johnny06spider_3.png) | ![P01_A2_aws_Johnny06spider_3](../../evidencias/P01/P01_A2_aws_Johnny06spider_3.png) |
 | Recursos que existían y justificación | [COMPLETAR o «ninguno»] | [COMPLETAR o «ninguno»] |
 
 ---
@@ -325,7 +332,7 @@ FinOps Foundation. (2026). *FinOps Framework*. https://www.finops.org/framework/
 
 | Herramienta | Para qué se usó |
 |---|---|
-| Claude (Anthropic) | Plantilla del README|
+| Claude (Anthropic) | Plantilla del README |
 
 ---
 
