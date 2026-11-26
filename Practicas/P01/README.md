@@ -114,7 +114,7 @@ Además: en Billing preferences → Alert preferences están activadas las **ale
 
 | Fecha | Google Cloud | AWS |
 |---|---|---|
-| 1 sep 2026 | ![P01_A2_gcp_Johnny06spider_1](evidencias/P01/P01_A2_gcp_Johnny06spider_1.png) | ![P01_A2_aws_Johnny06spider_1](evidencias/P01/P01_A2_aws_Johnny06spider_1.png) |
+| 1 sep 2026 | ![PRueba00](evidencias/P01/P01_A2_gcp_Johnny06spider_1.png) | ![P01_A2_aws_Johnny06spider_1](evidencias/P01/P01_A2_aws_Johnny06spider_1.png) |
 | 2 sep 2026 | ![P01_A2_gcp_Johnny06spider_2](evidencias/P01/P01_A2_gcp_Johnny06spider_2.png) | ![P01_A2_aws_Johnny06spider_2](evidencias/P01/P01_A2_aws_Johnny06spider_2.png) |
 | 8 sep 2026 | ![P01_A2_gcp_Johnny06spider_3](evidencias/P01/P01_A2_gcp_Johnny06spider_3.png) | ![P01_A2_aws_Johnny06spider_3](evidencias/P01/P01_A2_aws_Johnny06spider_3.png) |
 | Detalle | ![P01_A2_gcp_Johnny06spider_4](evidencias/P01/P01_A2_gcp_Johnny06spider_4.png) | ![P01_A2_aws_Johnny06spider_4](evidencias/P01/P01_A2_aws_Johnny06spider_4.png) |
