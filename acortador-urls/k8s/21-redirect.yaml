@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redirect
+  namespace: acortador
+  labels: {app: redirect}
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: redirect}
+  template:
+    metadata:
+      labels: {app: redirect}
+    spec:
+      serviceAccountName: redirect-sa
+      # Reparte las réplicas entre zonas para sobrevivir a la caída de una (failover)
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels: {app: redirect}
+      containers:
+        - name: app
+          image: ${REGION}-docker.pkg.dev/${PROJECT_ID}/acortador/redirect:${TAG}
+          ports:
+            - {name: http, containerPort: 8000}
+          envFrom:
+            - configMapRef: {name: acortador-config}
+          env:
+            - name: DATABASE_URL
+              valueFrom: {secretKeyRef: {name: db-credentials, key: DATABASE_URL}}
+          readinessProbe:
+            httpGet: {path: /health, port: http}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /health, port: http}
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests: {cpu: 250m, memory: 256Mi}
+            limits: {memory: 512Mi}
+          securityContext: {runAsNonRoot: true, allowPrivilegeEscalation: false}
+        - name: cloud-sql-proxy
+          image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.13.0
+          args: ["--private-ip", "--structured-logs", "--port=5432", "${CLOUDSQL_CONNECTION}"]
+          resources:
+            requests: {cpu: 50m, memory: 64Mi}
+          securityContext: {runAsNonRoot: true, allowPrivilegeEscalation: false}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redirect
+  namespace: acortador
+spec:
+  selector: {app: redirect}
+  ports:
+    - {name: http, port: 80, targetPort: http}
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: redirect
+  namespace: acortador
+spec:
+  scaleTargetRef: {apiVersion: apps/v1, kind: Deployment, name: redirect}
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource: {name: cpu, target: {type: Utilization, averageUtilization: 60}}
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+        - {type: Percent, value: 100, periodSeconds: 30}
+    scaleDown:
+      stabilizationWindowSeconds: 120
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: redirect
+  namespace: acortador
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels: {app: redirect}

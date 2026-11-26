@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analytics
+  namespace: acortador
+  labels: {app: analytics}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: analytics}
+  template:
+    metadata:
+      labels: {app: analytics}
+    spec:
+      serviceAccountName: analytics-sa
+      containers:
+        - name: app
+          image: ${REGION}-docker.pkg.dev/${PROJECT_ID}/acortador/analytics:${TAG}
+          ports:
+            - {name: http, containerPort: 8000}
+          envFrom:
+            - configMapRef: {name: acortador-config}
+          readinessProbe:
+            httpGet: {path: /health, port: http}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /health, port: http}
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {memory: 512Mi}
+          securityContext: {runAsNonRoot: true, allowPrivilegeEscalation: false}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: analytics
+  namespace: acortador
+spec:
+  selector: {app: analytics}
+  ports:
+    - {name: http, port: 80, targetPort: http}
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: analytics
+  namespace: acortador
+spec:
+  scaleTargetRef: {apiVersion: apps/v1, kind: Deployment, name: analytics}
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+    - type: Resource
+      resource: {name: cpu, target: {type: Utilization, averageUtilization: 60}}

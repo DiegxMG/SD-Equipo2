@@ -1,0 +1,39 @@
+# Variables sustituidas con envsubst: ${PROJECT_ID} ${INGRESS_IP}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: acortador-config
+  namespace: acortador
+data:
+  GCP_PROJECT: "${PROJECT_ID}"
+  PUBSUB_TOPIC: "click-events"
+  PUBSUB_SUBSCRIPTION: "click-events-analytics"
+  AUTO_CREATE_RESOURCES: "false"
+  BASE_URL: "http://${INGRESS_IP}"
+  CACHE_TTL_SECONDS: "30"
+---
+# Cuentas de servicio de Kubernetes enlazadas a cuentas de Google (Workload Identity):
+# los Pods obtienen permisos de IAM sin guardar llaves JSON.
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: links-sa
+  namespace: acortador
+  annotations:
+    iam.gke.io/gcp-service-account: acortador-links@${PROJECT_ID}.iam.gserviceaccount.com
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: redirect-sa
+  namespace: acortador
+  annotations:
+    iam.gke.io/gcp-service-account: acortador-redirect@${PROJECT_ID}.iam.gserviceaccount.com
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: analytics-sa
+  namespace: acortador
+  annotations:
+    iam.gke.io/gcp-service-account: acortador-analytics@${PROJECT_ID}.iam.gserviceaccount.com

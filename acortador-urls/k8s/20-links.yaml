@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: links
+  namespace: acortador
+  labels: {app: links}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: links}
+  template:
+    metadata:
+      labels: {app: links}
+    spec:
+      serviceAccountName: links-sa
+      containers:
+        - name: app
+          image: ${REGION}-docker.pkg.dev/${PROJECT_ID}/acortador/links:${TAG}
+          ports:
+            - {name: http, containerPort: 8000}
+          env:
+            - name: BASE_URL
+              valueFrom: {configMapKeyRef: {name: acortador-config, key: BASE_URL}}
+            - name: DATABASE_URL
+              valueFrom: {secretKeyRef: {name: db-credentials, key: DATABASE_URL}}
+          readinessProbe:
+            httpGet: {path: /health, port: http}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /health, port: http}
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {memory: 512Mi}
+          securityContext: {runAsNonRoot: true, allowPrivilegeEscalation: false}
+        # Cloud SQL Auth Proxy: conexión segura a Cloud SQL (IP privada) con IAM
+        - name: cloud-sql-proxy
+          image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.13.0
+          args: ["--private-ip", "--structured-logs", "--port=5432", "${CLOUDSQL_CONNECTION}"]
+          resources:
+            requests: {cpu: 50m, memory: 64Mi}
+          securityContext: {runAsNonRoot: true, allowPrivilegeEscalation: false}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: links
+  namespace: acortador
+spec:
+  selector: {app: links}
+  ports:
+    - {name: http, port: 80, targetPort: http}
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: links
+  namespace: acortador
+spec:
+  scaleTargetRef: {apiVersion: apps/v1, kind: Deployment, name: links}
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+    - type: Resource
+      resource: {name: cpu, target: {type: Utilization, averageUtilization: 60}}

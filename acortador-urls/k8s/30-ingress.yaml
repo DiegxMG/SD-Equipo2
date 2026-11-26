@@ -1,0 +1,20 @@
+# Ingress de GKE = Balanceador HTTP(S) externo de Google Cloud (único punto de entrada público).
+# Requiere una IP estática global llamada "acortador-ip" (ver docs/DESPLIEGUE_GCP.md).
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: acortador
+  namespace: acortador
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: acortador-ip
+spec:
+  rules:
+    - http:
+        paths:
+          - {path: /api/docs, pathType: Prefix, backend: {service: {name: links, port: {number: 80}}}}
+          - {path: /api/openapi.json, pathType: Prefix, backend: {service: {name: links, port: {number: 80}}}}
+          - {path: /api/links, pathType: Prefix, backend: {service: {name: links, port: {number: 80}}}}
+          - {path: /app, pathType: Prefix, backend: {service: {name: links, port: {number: 80}}}}
+          - {path: /api/stats, pathType: Prefix, backend: {service: {name: analytics, port: {number: 80}}}}
+          # Todo lo demás (/ y /abc1234) lo resuelve el servicio de redirección
+          - {path: /, pathType: Prefix, backend: {service: {name: redirect, port: {number: 80}}}}

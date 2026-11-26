@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acortador de URLs</title>
+  <style>
+    :root {
+      --bg: #faf9f7; --ink: #1d1c1b; --muted: #6b6762; --line: #dcd8d2;
+      --accent: #6a1b3a; --accent-ink: #ffffff; --ok: #1f6b45; --err: #a3262a;
+      --chart-1: #6a1b3a; --chart-2: #1a5f8e; --chart-3: #b88a2e; --chart-4: #4d7c5b; --chart-5: #8a8580;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171615; --ink: #ece9e4; --muted: #a09b94; --line: #35322f;
+        --accent: #d77a9c; --accent-ink: #1a0f14; --ok: #6cc59a; --err: #ff8b8f;
+        --chart-1: #d77a9c; --chart-2: #6fb2dd; --chart-3: #e0b95a; --chart-4: #7fbf94; --chart-5: #a09b94;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink);
+           font: 16px/1.5 "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; }
+    header { padding: 28px 24px 18px; border-bottom: 1px solid var(--line); }
+    header h1 { margin: 0; font-size: 1.6rem; letter-spacing: -0.01em; }
+    header p { margin: 4px 0 0; color: var(--muted); }
+    .layout { display: grid; grid-template-columns: minmax(0, 26rem) minmax(0, 1fr); gap: 0; }
+    .col { padding: 24px; min-width: 0; }
+    .col + .col { border-left: 1px solid var(--line); }
+    @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } .col + .col { border-left: 0; border-top: 1px solid var(--line); } }
+    h2 { font-size: 1.05rem; margin: 0 0 12px; }
+    form { display: grid; gap: 14px; }
+    label { display: grid; gap: 4px; font-weight: 600; font-size: 0.92rem; }
+    label small { font-weight: 400; color: var(--muted); }
+    label.check { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; }
+    input[type=url], input[type=text] { width: 100%; padding: 9px 10px; border: 1px solid var(--line); border-radius: 4px;
+      background: transparent; color: var(--ink); font: inherit; }
+    input:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    button { font: inherit; cursor: pointer; border-radius: 4px; padding: 8px 14px; border: 1px solid var(--line);
+      background: transparent; color: var(--ink); }
+    button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+    button.small { padding: 3px 9px; font-size: 0.85rem; }
+    button.danger { color: var(--err); }
+    #msg { min-height: 1.5em; margin-top: 10px; font-size: 0.92rem; }
+    #msg.ok { color: var(--ok); } #msg.err { color: var(--err); }
+    table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 0.92rem; }
+    th { text-align: left; font-weight: 600; color: var(--muted); padding: 6px 4px; border-bottom: 1px solid var(--line); }
+    td { padding: 8px 4px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    td.url { max-width: 14rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); }
+    td.actions { white-space: nowrap; text-align: right; }
+    tr.sel td { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+    a { color: var(--accent); }
+    .empty { color: var(--muted); padding: 18px 0; }
+    .kpis { display: flex; gap: 32px; flex-wrap: wrap; margin: 4px 0 18px; }
+    .kpi b { display: block; font-size: 2rem; line-height: 1.1; }
+    .kpi span { color: var(--muted); font-size: 0.9rem; }
+    .charts { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 24px; }
+    @media (max-width: 1100px) { .charts { grid-template-columns: 1fr; } }
+    .chart-box { position: relative; height: 240px; }
+    ul.recent { list-style: none; margin: 8px 0 0; padding: 0; font-size: 0.9rem; }
+    ul.recent li { padding: 6px 0; border-bottom: 1px solid var(--line); display: flex; gap: 12px; flex-wrap: wrap; }
+    ul.recent .when { color: var(--muted); min-width: 11rem; }
+    .note { color: var(--muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Acortador de URLs</h1>
+    <p>Crea enlaces cortos y consulta cuántas veces se visitan.</p>
+  </header>
+
+  <div class="layout">
+    <div class="col">
+      <h2>Crear enlace</h2>
+      <form id="form">
+        <label>URL original
+          <input id="url" type="url" required placeholder="https://ejemplo.com/una/ruta/muy/larga">
+        </label>
+        <label>Alias personalizado <small>Opcional. De 3 a 32 caracteres: letras, números, _ o -</small>
+          <input id="alias" type="text" pattern="[A-Za-z0-9_\-]{3,32}" placeholder="mi-enlace">
+        </label>
+        <label class="check">
+          <input id="permanent" type="checkbox">
+          <span>Redirección permanente (301). El navegador la guarda y las visitas repetidas no se cuentan.</span>
+        </label>
+        <div><button class="primary" type="submit">Crear enlace</button></div>
+      </form>
+      <div id="msg" role="status" aria-live="polite"></div>
+
+      <h2 style="margin-top:28px">Enlaces creados</h2>
+      <div id="links-wrap"></div>
+    </div>
+
+    <div class="col" id="stats-col">
+      <h2 id="stats-title">Estadísticas</h2>
+      <div id="stats-empty" class="empty">Elige un enlace de la lista y pulsa “Estadísticas”.</div>
+      <div id="stats" hidden>
+        <div class="kpis">
+          <div class="kpi"><b id="k-total">0</b><span>clics registrados</span></div>
+          <div class="kpi"><b id="k-last">–</b><span>último clic</span></div>
+        </div>
+        <p id="k-trunc" class="note" hidden></p>
+        <div class="charts">
+          <div><div class="chart-box"><canvas id="c-day" aria-label="Clics por día" role="img"></canvas></div></div>
+          <div><div class="chart-box"><canvas id="c-dev" aria-label="Clics por dispositivo" role="img"></canvas></div></div>
+        </div>
+        <h2 style="margin-top:22px">Clics recientes</h2>
+        <ul class="recent" id="recent"></ul>
+        <p class="note">Se actualiza solo cada 5 segundos. Un clic tarda un instante en aparecer porque se procesa de forma asíncrona.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script>
+    const $ = (s) => document.querySelector(s);
+    const DEVICE_LABELS = { desktop: "Computadora", mobile: "Celular", tablet: "Tablet", bot: "Bot / herramienta", unknown: "Desconocido" };
+    let selected = null, timer = null, dayChart = null, devChart = null;
+
+    async function api(path, opts) {
+      const res = await fetch(path, opts);
+      if (!res.ok) {
+        let detail = "";
+        try { const j = await res.json(); detail = typeof j.detail === "string" ? j.detail : JSON.stringify(j.detail); } catch (_) {}
+        throw new Error(detail || `Error ${res.status}`);
+      }
+      return res.status === 204 ? null : res.json();
+    }
+
+    function say(text, kind) { const m = $("#msg"); m.textContent = text; m.className = kind || ""; }
+    function fmt(iso) { return new Date(iso).toLocaleString("es-MX", { dateStyle: "medium", timeStyle: "medium" }); }
+
+    async function loadLinks() {
+      const data = await api("/api/links?limit=50");
+      const wrap = $("#links-wrap");
+      wrap.replaceChildren();
+      if (!data.length) {
+        const p = document.createElement("p"); p.className = "empty"; p.textContent = "Todavía no hay enlaces. Crea el primero arriba.";
+        wrap.append(p); return;
+      }
+      const table = document.createElement("table");
+      table.innerHTML = "<thead><tr><th>Enlace corto</th><th>Destino</th><th></th></tr></thead>";
+      const tbody = document.createElement("tbody");
+      for (const l of data) {
+        const tr = document.createElement("tr");
+        if (l.code === selected) tr.className = "sel";
+
+        const tdCode = document.createElement("td");
+        const a = document.createElement("a"); a.href = l.short_url; a.target = "_blank"; a.rel = "noopener"; a.textContent = l.code;
+        tdCode.append(a);
+        if (l.permanent) { const s = document.createElement("small"); s.className = "note"; s.textContent = " (301)"; tdCode.append(s); }
+
+        const tdUrl = document.createElement("td"); tdUrl.className = "url"; tdUrl.textContent = l.url; tdUrl.title = l.url;
+
+        const tdAct = document.createElement("td"); tdAct.className = "actions";
+        const bStats = button("Estadísticas", () => selectLink(l.code));
+        const bCopy = button("Copiar", async () => { await navigator.clipboard.writeText(l.short_url); say("Enlace copiado: " + l.short_url, "ok"); });
+        const bDel = button("Eliminar", async () => {
+          if (!confirm(`¿Eliminar el enlace ${l.code}? Puede seguir funcionando hasta 30 segundos por la caché.`)) return;
+          try { await api("/api/links/" + encodeURIComponent(l.code), { method: "DELETE" }); if (selected === l.code) clearStats(); await loadLinks(); say("Enlace eliminado.", "ok"); }
+          catch (e) { say(e.message, "err"); }
+        });
+        bDel.classList.add("danger");
+        tdAct.append(bStats, " ", bCopy, " ", bDel);
+
+        tr.append(tdCode, tdUrl, tdAct); tbody.append(tr);
+      }
+      table.append(tbody); wrap.append(table);
+    }
+
+    function button(label, onClick) {
+      const b = document.createElement("button"); b.type = "button"; b.className = "small"; b.textContent = label; b.addEventListener("click", onClick); return b;
+    }
+
+    $("#form").addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      const body = { url: $("#url").value.trim(), permanent: $("#permanent").checked };
+      const alias = $("#alias").value.trim(); if (alias) body.alias = alias;
+      try {
+        const link = await api("/api/links", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+        say("Enlace creado: " + link.short_url, "ok");
+        $("#form").reset(); await loadLinks(); selectLink(link.code);
+      } catch (e) { say(e.message, "err"); }
+    });
+
+    function clearStats() { selected = null; clearInterval(timer); $("#stats").hidden = true; $("#stats-empty").hidden = false; $("#stats-title").textContent = "Estadísticas"; }
+
+    function selectLink(code) {
+      selected = code; clearInterval(timer);
+      $("#stats-title").textContent = "Estadísticas de " + code;
+      $("#stats-empty").hidden = true; $("#stats").hidden = false;
+      refreshStats(); timer = setInterval(refreshStats, 5000);
+      loadLinks();
+    }
+
+    async function refreshStats() {
+      if (!selected) return;
+      try {
+        const s = await api("/api/stats/" + encodeURIComponent(selected));
+        $("#k-total").textContent = s.total.toLocaleString("es-MX");
+        $("#k-last").textContent = s.recent.length ? fmt(s.recent[0].ts) : "–";
+        const t = $("#k-trunc"); t.hidden = !s.truncated;
+        if (s.truncated) t.textContent = "Hay más clics de los que se analizan; los números son de una muestra.";
+        drawCharts(s);
+        const ul = $("#recent"); ul.replaceChildren();
+        if (!s.recent.length) { const li = document.createElement("li"); li.textContent = "Aún no hay clics. Abre el enlace corto para generar uno."; ul.append(li); }
+        for (const r of s.recent) {
+          const li = document.createElement("li");
+          const w = document.createElement("span"); w.className = "when"; w.textContent = fmt(r.ts);
+          const d = document.createElement("span"); d.textContent = DEVICE_LABELS[r.device] || r.device;
+          li.append(w, d); ul.append(li);
+        }
+      } catch (e) { say("No se pudieron cargar las estadísticas: " + e.message, "err"); }
+    }
+
+    function drawCharts(s) {
+      if (!window.Chart) return; // sin internet no se dibujan gráficas, pero los números siguen visibles
+      const css = getComputedStyle(document.documentElement);
+      const color = (n) => css.getPropertyValue(n).trim();
+      const ink = color("--ink"), line = color("--line");
+      Chart.defaults.color = ink; Chart.defaults.borderColor = line;
+      if (dayChart) dayChart.destroy();
+      if (devChart) devChart.destroy();
+      dayChart = new Chart($("#c-day"), {
+        type: "bar",
+        data: { labels: s.by_day.map((d) => d.date), datasets: [{ label: "Clics", data: s.by_day.map((d) => d.clicks), backgroundColor: color("--chart-1") }] },
+        options: { maintainAspectRatio: false, animation: false, plugins: { legend: { display: false }, title: { display: true, text: "Clics por día (UTC)" } },
+                   scales: { y: { beginAtZero: true, ticks: { precision: 0 } } } }
+      });
+      const devs = Object.keys(s.by_device);
+      devChart = new Chart($("#c-dev"), {
+        type: "doughnut",
+        data: { labels: devs.map((d) => DEVICE_LABELS[d] || d), datasets: [{ data: devs.map((d) => s.by_device[d]),
+                backgroundColor: [color("--chart-1"), color("--chart-2"), color("--chart-3"), color("--chart-4"), color("--chart-5")], borderColor: color("--bg") }] },
+        options: { maintainAspectRatio: false, animation: false, plugins: { title: { display: true, text: "Por dispositivo" } } }
+      });
+    }
+
+    loadLinks().catch((e) => say("No se pudo cargar la lista: " + e.message, "err"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+fastapi>=0.110,<1
+uvicorn[standard]>=0.29,<1
+google-cloud-pubsub>=2.21,<3
+google-cloud-firestore>=2.16,<3
+prometheus-fastapi-instrumentator>=6.1,<8

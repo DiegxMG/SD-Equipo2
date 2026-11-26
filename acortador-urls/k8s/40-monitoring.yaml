@@ -1,0 +1,23 @@
+# Google Cloud Managed Service for Prometheus: recolecta /metrics de cada servicio.
+# Las métricas (http_request_duration_seconds, http_requests_total) alimentan los SLOs de la Fase 2
+# y pueden graficarse en Cloud Monitoring o en Grafana.
+apiVersion: monitoring.googleapis.com/v1
+kind: PodMonitoring
+metadata: {name: redirect, namespace: acortador}
+spec:
+  selector: {matchLabels: {app: redirect}}
+  endpoints: [{port: http, interval: 15s}]
+---
+apiVersion: monitoring.googleapis.com/v1
+kind: PodMonitoring
+metadata: {name: links, namespace: acortador}
+spec:
+  selector: {matchLabels: {app: links}}
+  endpoints: [{port: http, interval: 15s}]
+---
+apiVersion: monitoring.googleapis.com/v1
+kind: PodMonitoring
+metadata: {name: analytics, namespace: acortador}
+spec:
+  selector: {matchLabels: {app: analytics}}
+  endpoints: [{port: http, interval: 15s}]

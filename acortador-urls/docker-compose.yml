@@ -1,0 +1,77 @@
+# Entorno local completo: 3 microservicios + PostgreSQL + emuladores de Pub/Sub y Firestore + nginx.
+# Uso:  docker compose up --build      (panel en http://localhost:8080/app/)
+name: acortador
+
+x-emulator: &emulator
+  image: gcr.io/google.com/cloudsdktool/google-cloud-cli:emulators
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: acortador
+      POSTGRES_PASSWORD: acortador
+      POSTGRES_DB: acortador
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U acortador -d acortador"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  pubsub:
+    <<: *emulator
+    command: gcloud beta emulators pubsub start --project=acortador-local --host-port=0.0.0.0:8085
+
+  firestore:
+    <<: *emulator
+    command: gcloud emulators firestore start --host-port=0.0.0.0:8086
+
+  links:
+    build: ./services/links
+    environment:
+      DATABASE_URL: postgresql+psycopg2://acortador:acortador@db:5432/acortador
+      BASE_URL: http://localhost:8080
+    depends_on:
+      db:
+        condition: service_healthy
+
+  redirect:
+    build: ./services/redirect
+    environment:
+      DATABASE_URL: postgresql+psycopg2://acortador:acortador@db:5432/acortador
+      GCP_PROJECT: acortador-local
+      PUBSUB_EMULATOR_HOST: pubsub:8085
+      AUTO_CREATE_RESOURCES: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+      pubsub:
+        condition: service_started
+
+  analytics:
+    build: ./services/analytics
+    environment:
+      GCP_PROJECT: acortador-local
+      PUBSUB_EMULATOR_HOST: pubsub:8085
+      FIRESTORE_EMULATOR_HOST: firestore:8086
+      AUTO_CREATE_RESOURCES: "true"
+    depends_on:
+      - pubsub
+      - firestore
+
+  gateway:
+    image: nginx:1.27-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - links
+      - redirect
+      - analytics
+
+volumes:
+  pgdata:
