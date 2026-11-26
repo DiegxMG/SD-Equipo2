@@ -107,17 +107,17 @@ Además: en Billing preferences → Alert preferences están activadas las **ale
 
 | Campo | Azure | AWS |
 |---|---|---|
-| Nombre(s) del presupuesto | `P1-Johnny06spider-gcp` | `P1-Johnny06spider-aws-cero` y `P1-Johnny06spider-aws` |
-| Monto y periodo | 5 USD · mensual | 5 USD · mensual (más gasto cero) |
-| Umbrales | [COMPLETAR] | [COMPLETAR] |
-| Destinatario | [COMPLETAR] | [COMPLETAR] |
+| Nombre(s) del presupuesto | `P1-Johnny-azure` | `P1-Johnny-aws-cero` y `P2-5US-Johnny-aws` |
+| Monto y periodo | 5 USD · Mensual (Inició 1/10/2026) | El P1 fue de 1 Dollar USD y el P2 fue de 5 Dollars USD (Mensual-Inició 1/10/2026)|
+| Umbrales |Coste previsto 100% USD 5, Coste real 50% USD 3, Coste real 80% USD 4, Coste real 100% USD 5 | Costo real > 0,01 US$ (1 USD), Referenced by Costo real > 100% Costo real > 85% Costo previsto > 100 % (5 USD) |
+| Destinatario | jmironx1600@alumno.ipn.mx | jmironx1600@alumno.ipn.mx |
 
 | Fecha | Google Cloud | AWS |
 |---|---|---|
-| 1 sep 2026 | ![PRueba00](evidencias/P01/P01_A2_gcp_Johnny06spider_1.png) | ![P01_A2_aws_Johnny06spider_1](evidencias/P01/P01_A2_aws_Johnny06spider_1.png) |
-| 2 sep 2026 | ![P01_A2_gcp_Johnny06spider_2](evidencias/P01/P01_A2_gcp_Johnny06spider_2.png) | ![P01_A2_aws_Johnny06spider_2](evidencias/P01/P01_A2_aws_Johnny06spider_2.png) |
-| 8 sep 2026 | ![P01_A2_gcp_Johnny06spider_3](evidencias/P01/P01_A2_gcp_Johnny06spider_3.png) | ![P01_A2_aws_Johnny06spider_3](evidencias/P01/P01_A2_aws_Johnny06spider_3.png) |
-| Detalle | ![P01_A2_gcp_Johnny06spider_4](evidencias/P01/P01_A2_gcp_Johnny06spider_4.png) | ![P01_A2_aws_Johnny06spider_4](evidencias/P01/P01_A2_aws_Johnny06spider_4.png) |
+| 1/10/2026 | ![P01_A2_azure_Johnny06spider_1](evidencias/P01/P01_A2_azure_Johnny06spider_1.png) | ![P01_A2_aws_Johnny06spider_1](evidencias/P01/P01_A2_aws_Johnny06spider_1.png) |
+| 2/10/2026 | ![P01_A2_azure_Johnny06spider_2](evidencias/P01/P01_A2_azure_Johnny06spider_2.png) | ![P01_A2_aws_Johnny06spider_2](evidencias/P01/P01_A2_aws_Johnny06spider_2.png) |
+| Al día actual | ![P01_A2_azure_Johnny06spider_3](evidencias/P01/P01_A2_azure_Johnny06spider_3.png) | ![P01_A2_aws_Johnny06spider_3](evidencias/P01/P01_A2_aws_Johnny06spider_3.png) |
+| Detalle y correo de notificación| ![P01_A2_azure_Johnny06spider_4](evidencias/P01/P01_A2_azure_Johnny06spider_4.png) | ![P01_A2_aws_Johnny06spider_4](evidencias/P01/P01_A2_aws_Johnny06spider_4.png) ![P01_A2_aws_Johnny06spider_5](evidencias/P01/P01_A2_aws_Johnny06spider_5.png) |
 
 ---
 
