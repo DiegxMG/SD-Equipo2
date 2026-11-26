@@ -3,7 +3,7 @@
 - **Sistemas Distribuidos · Grupo 7CV1 · ESCOM-IPN · Semestre 27/1**
 - **Profesor:** Rodrigo Ojeda Santillán
 - **Equipo:** Equipo 2
-- **Proveedores usados:** Google Cloud y Amazon Web Services (AWS)
+- **Proveedores usados:** Google Cloud, Amazon Web Services (AWS) y Azure
 - **Sesiones:** A (1 de septiembre de 2026) · B (8 de septiembre de 2026)
 ---
 
@@ -12,7 +12,7 @@
 | # | Nombre | Boleta | Usuario GitHub | Correo donde llegan las alertas |
 |---|--------|--------|----------------|---------------------------------|
 | 1 | Diego Mendieta Gonzalez | 2024630077 | DiegxMG | dmendieta2005@gmail.com |
-| 2 | Mirón Xochipa Juan Antonio | 2020630680 | Johnny06spider | [COMPLETAR correo] |
+| 2 | Mirón Xochipa Juan Antonio | 2020630680 | Johnny06spider | jmironx1600@alumno.ipn.mx |
 ---
 
 ## 1. Cuentas del equipo y reconocimiento de la consola (Actividad A1)
@@ -23,8 +23,13 @@
 |---|---|---|---|---|---|---|
 | Diego Mendieta Gonzalez | Google Cloud | ID del proyecto: `project-6800c28f-c7a6-492a-84e` (nombre: My First Project · número: 403204069542) | Cuenta de facturación + proyecto | Sí · `northamerica-south1` (Querétaro) | Crédito de bienvenida de MXN 5,344.19 (equivalente a los 300 USD de la prueba; la cuenta factura en pesos) · vence el 4 de enero de 2027 (41 días restantes al 24 nov 2026) | dmendieta2005@gmail.com |
 | Diego Mendieta Gonzalez | AWS | ID de cuenta: `739854784028` (nombre de la cuenta: Diego Mendieta) | Cuenta de AWS | Sí · `mx-central-1` (Querétaro), habilitada y seleccionada en la consola | 0.00 USD de crédito disponible (Billing → Credits, 24 nov 2026) | dmendieta2005@gmail.com |
-| Mirón Xochipa Juan Antonio | Google Cloud | ID del proyecto: [COMPLETAR] | Cuenta de facturación + proyecto | Sí · `northamerica-south1` (Querétaro) | [COMPLETAR] | [COMPLETAR] |
-| Mirón Xochipa Juan Antonio | AWS | ID de cuenta (12 dígitos): [COMPLETAR] | Cuenta de AWS | Sí · `mx-central-1` (Querétaro) | [COMPLETAR] | [COMPLETAR] |
+| Mirón Xochipa Juan Antonio | Azure | ID del proyecto: `f94bf4d9-8097-4794-adf6-a5466ca28563` | Suscripción (Azure for Students) | Sí · `Mexico Central` (Querétaro) | 100 USD por 12 meses + servicios gratuitos; renovable cada año
+mientras seas estudiante
+ | jmironx1600@alumno.ipn.mx |
+| Mirón Xochipa Juan Antonio | AWS | ID de cuenta (12 dígitos): `934225420805` | Cuenta de AWS | Sí · `mx-central-1` (Querétaro) | 100 USD al abrir la cuenta + hasta
+100 USD más por completar cinco
+actividades guiadas (una de ellas
+es crear un presupuesto) | jmironx1600@alumno.ipn.mx |
 
 ### Evidencias A1 — Diego Mendieta Gonzalez (DiegxMG)
 
@@ -46,11 +51,11 @@
 
 ### Evidencias A1 — Mirón Xochipa Juan Antonio (Johnny06spider)
 
-| Captura | Google Cloud | AWS |
+| Captura | Azure | AWS |
 |---|---|---|
-| Panel de inicio con ID de cuenta/proyecto | ![P01_A1_gcp_Johnny06spider_1](evidencias/P01/P01_A1_gcp_Johnny06spider_1.png) | ![P01_A1_aws_Johnny06spider_1](evidencias/P01/P01_A1_aws_Johnny06spider_1.png) |
-| Lista de regiones con México | ![P01_A1_gcp_Johnny06spider_2](evidencias/P01/P01_A1_gcp_Johnny06spider_2.png) | ![P01_A1_aws_Johnny06spider_2](evidencias/P01/P01_A1_aws_Johnny06spider_2.png) |
-| Gasto 0.00 y créditos con vencimiento | ![P01_A1_gcp_Johnny06spider_3](evidencias/P01/P01_A1_gcp_Johnny06spider_3.png) | ![P01_A1_aws_Johnny06spider_3](evidencias/P01/P01_A1_aws_Johnny06spider_3.png) |
+| Panel de inicio con ID de cuenta/proyecto | ![PruebaAzure](evidencias/P01/P01_A1_azure_Johnny06spider_1.png) | ![P01_A1_aws_Johnny06spider_1](evidencias/P01/P01_A1_aws_Johnny06spider_1.png) |
+| Lista de regiones con México | ![P01_A1_gcp_Johnny06spider_2](evidencias/P01/P01_A1_azure_Johnny06spider_2.png) | ![P01_A1_aws_Johnny06spider_2](evidencias/P01/P01_A1_aws_Johnny06spider_2.png) |
+| Gasto 0.00 y créditos con vencimiento | ![P01_A1_gcp_Johnny06spider_3](evidencias/P01/P01_A1_azure_Johnny06spider_3.png) | ![P01_A1_aws_Johnny06spider_3](evidencias/P01/P01_A1_aws_Johnny06spider_3.png) |
 
 ---
 
@@ -103,9 +108,9 @@ Además: en Billing preferences → Alert preferences están activadas las **ale
 | Preferencias de alertas: alertas del nivel gratuito activadas | ![P01_A2_aws_DiegxMG_6](evidencias/P01/P01_A2_aws_DiegxMG_6.png) |
 
 
-### 2.3 Mirón Xochipa Juan Antonio (Johnny06spider) — Google Cloud y AWS
+  ### 2.3 Mirón Xochipa Juan Antonio (Johnny06spider) — Azure y AWS
 
-| Campo | Google Cloud | AWS |
+| Campo | Azure | AWS |
 |---|---|---|
 | Nombre(s) del presupuesto | `P1-Johnny06spider-gcp` | `P1-Johnny06spider-aws-cero` y `P1-Johnny06spider-aws` |
 | Monto y periodo | 5 USD · mensual | 5 USD · mensual (más gasto cero) |
