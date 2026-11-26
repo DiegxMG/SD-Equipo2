@@ -23,13 +23,8 @@
 |---|---|---|---|---|---|---|
 | Diego Mendieta Gonzalez | Google Cloud | ID del proyecto: `project-6800c28f-c7a6-492a-84e` (nombre: My First Project · número: 403204069542) | Cuenta de facturación + proyecto | Sí · `northamerica-south1` (Querétaro) | Crédito de bienvenida de MXN 5,344.19 (equivalente a los 300 USD de la prueba; la cuenta factura en pesos) · vence el 4 de enero de 2027 (41 días restantes al 24 nov 2026) | dmendieta2005@gmail.com |
 | Diego Mendieta Gonzalez | AWS | ID de cuenta: `739854784028` (nombre de la cuenta: Diego Mendieta) | Cuenta de AWS | Sí · `mx-central-1` (Querétaro), habilitada y seleccionada en la consola | 0.00 USD de crédito disponible (Billing → Credits, 24 nov 2026) | dmendieta2005@gmail.com |
-| Mirón Xochipa Juan Antonio | Azure | ID del proyecto: `f94bf4d9-8097-4794-adf6-a5466ca28563` | Suscripción (Azure for Students) | Sí · `Mexico Central` (Querétaro) | 100 USD por 12 meses + servicios gratuitos; renovable cada año
-mientras seas estudiante
- | jmironx1600@alumno.ipn.mx |
-| Mirón Xochipa Juan Antonio | AWS | ID de cuenta (12 dígitos): `934225420805` | Cuenta de AWS | Sí · `mx-central-1` (Querétaro) | 100 USD al abrir la cuenta + hasta
-100 USD más por completar cinco
-actividades guiadas (una de ellas
-es crear un presupuesto) | jmironx1600@alumno.ipn.mx |
+| Mirón Xochipa Juan Antonio | Azure | ID del proyecto: `f94bf4d9-8097-4794-adf6-a5466ca28563` | Suscripción (Azure for Students) | Sí · `Mexico Central` (Querétaro) | 100 USD por 12 meses + servicios gratuitos; renovable cada año mientras seas estudiante (Expira el viernes, 15 de octubre de 2027) | jmironx1600@alumno.ipn.mx |
+| Mirón Xochipa Juan Antonio | AWS | ID de cuenta (12 dígitos): `934225420805` | Cuenta de AWS | Sí · `mx-central-1` (Querétaro) | 100 USD al abrir la cuenta + hasta 100 USD más por completar cinco actividades guiadas (una de ellas es crear un presupuesto(Vence Abril 15 del 2027)) | jmironx1600@alumno.ipn.mx |
 
 ### Evidencias A1 — Diego Mendieta Gonzalez (DiegxMG)
 
